@@ -1,0 +1,60 @@
+{
+    "C_Cpp.default.compilerPath": "/usr/bin/gcc-13",
+    "files.associations": {
+      "iostream": "cpp"
+    },
+    "workbench.colorCustomizations": {
+      "[Default Dark+]": {
+        "editor.background": "#000000",
+        "editor.foreground": "#FFFFFF",
+        "editorLineNumber.foreground": "#858585",
+        "editorCursor.foreground": "#FFFFFF",
+        "editor.selectionBackground": "#264F78",
+        "editor.selectionHighlightBackground": "#264F78",
+        "editor.wordHighlightBackground": "#575757",
+        "editor.wordHighlightStrongBackground": "#3A3D41",
+        "editor.findMatchHighlightBackground": "#575757",
+        "editor.findRangeHighlightBackground": "#3A3D41",
+        "editor.lineHighlightBackground": "#000000",
+        "editorBracketMatch.background": "#515C6A",
+        "editorBracketMatch.border": "#00000000",
+        "editorWhitespace.foreground": "#404040",
+        "editorIndentGuide.activeBackground": "#707070",
+        "editor.selectionHighlightBorder": "#ADD6FF26",
+        "editor.findMatchBorder": "#00000000",
+        "editor.findMatchHighlightBorder": "#00000000",
+        "editor.lineHighlightBorder": "#282828",
+        "editorLineNumber.activeForeground": "#C6C6C6",
+        "editorCodeLens.foreground": "#999999",
+        "editorLink.activeForeground": "#4E94CE",
+        "editorHoverHighlightBackground": "#264F78",
+        "editorLineNumber.activeForeground": "#FFFFFF",
+        "editor.lineHighlightBorder": "#FFFFFF"
+      }
+    },
+    "editor.tokenColorCustomizations": {
+      "textMateRules": [
+        {
+          "scope": "comment",
+          "settings": {
+            "foreground": "#FF0000"
+          }
+        },
+        {
+          "scope": [
+            "string.quoted.double",
+            "string.quoted.single"
+          ],
+          "settings": {
+            "foreground": "#00FF00"
+          }
+        }
+      ]
+    },
+    "editor.fontSize": 18,
+    "files.autoSave": "afterDelay",
+    "json.schemas": [
+      
+    ]
+  }
+  
