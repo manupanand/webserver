@@ -1,8 +1,5 @@
 {
-    "C_Cpp.default.compilerPath": "/usr/bin/gcc-13",
-    "files.associations": {
-      "iostream": "cpp"
-    },
+    
     "workbench.colorCustomizations": {
       "[Default Dark+]": {
         "editor.background": "#000000",
