@@ -16,16 +16,18 @@ var todos = []todo{
 	{ID:"2",Item :"watch movie", Completed:false},
 	{ID:"3",Item :"gym", Completed:false},
 }
-//function which take parameter whic 10- https://www.youtube.com/watch?v=d_L64KT3SFM
-fun getTodo(context *){
+//function which take parameter which is type-gin.Context
+//extract inconme data-extract from context-tranform todos into  JSON,1-status-http
+fun getTodo(context *gin.Context){
+	context.IntendedJSON(http.StatusOK,todos)
 
 }
 // clen and server communicate use JSON-decalre inside struct
 func main(){
 	//server assign variable-router is server
 	router:=gin.Default()
-	//create enpoint-get("route",function)-function which return json data
-	router.GET("/todos",)
+	//create enpoint-get("path",function)-function which return json data
+	router.GET("/todos",getTodo(todos))
 	//run server -router.Run()
 	router.Run("localhost:9090")
 	// fmt.Println("test")
