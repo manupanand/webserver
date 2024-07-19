@@ -1,6 +1,7 @@
 package main
 import (
 	"fmt"
+	"errors"
 	"net/http"
 	"github.com/gin-gonic/gin"
 )
@@ -33,6 +34,40 @@ func addTodo(context *gin.Context){
 	todos = append(todos,newTodo)
 	context.JSON(http.StatusCreated,newTodo)
 }
+//to get some using id key (input -d string)(return- todo and error)
+func getTodoById(id string)(*todo ,error){
+	for i,t:=range todos{
+		if t.ID==id{
+			return &todos[i],nil
+		}
+	}
+	return nil,errors.New("todo not found")
+
+}
+func getTodoI(context *gin.Context){//for handler get parameter from url
+	id:=context.Param("id")
+	todo,err:=getTodoById(id)
+	if err!=nil{
+		context.JSON(http.StatusNotFound,gin.H{"message":"todo not found"})//gin.H for custom message
+		return
+	}
+	context.JSON(http.StatusOK,todo)
+
+}
+
+//update to do patch request
+func togleTodoStatus(context *gin.Context){
+	//use id -get Param function
+	id:=context.Param("id")
+	todo,err:=getTodoById(id)
+	if err!=nil{
+		context.JSON(http.StatusNotFound,gin.H{"message":"todo not found"})//gin.H for custom message
+		return
+	}
+	todo.Completed=!todo.Completed
+	context.JSON(http.StatusOK,todo)
+
+}
 // clen and server communicate use JSON-decalre inside struct
 func main(){
 	fmt.Println("test")
@@ -40,6 +75,10 @@ func main(){
 	router:=gin.Default()
 	//create enpoint-get("path",function)-function which return json data
 	router.GET("/todos",getTodo)
+	//get tod using parameter
+	router.GET("/todos/:id",getTodoI)
+	//update-patch request
+	router.PATCH("/todos/:id",togleTodoStatus)
 	//post
 	router.POST("/todos",addTodo)
 	//run server -router.Run()
