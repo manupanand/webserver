@@ -2,7 +2,7 @@ package main
 import (
 	"fmt"
 	"net/http"
-	"github.com/gin-conic/gin"
+	"github.com/gin-gonic/gin"
 )
 //define the structure of data
 type todo struct{
@@ -18,16 +18,17 @@ var todos = []todo{
 }
 //function which take parameter which is type-gin.Context
 //extract inconme data-extract from context-tranform todos into  JSON,1-status-http
-fun getTodo(context *gin.Context){
-	context.IntendedJSON(http.StatusOK,todos)
+func getTodo(context *gin.Context){
+	context.JSON(http.StatusOK,todos)
 
 }
 // clen and server communicate use JSON-decalre inside struct
 func main(){
+	fmt.Println("test")
 	//server assign variable-router is server
 	router:=gin.Default()
 	//create enpoint-get("path",function)-function which return json data
-	router.GET("/todos",getTodo(todos))
+	router.GET("/todos",getTodo)
 	//run server -router.Run()
 	router.Run("localhost:9090")
 	// fmt.Println("test")

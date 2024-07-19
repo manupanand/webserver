@@ -1,4 +1,4 @@
-module your-module-name
+module sample
 
 go 1.22.5
 
