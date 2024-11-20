@@ -16,6 +16,23 @@ const express_1 = __importDefault(require("express"));
 const redis_1 = require("redis");
 const client = (0, redis_1.createClient)();
 const app = (0, express_1.default)();
+app.post("/submit", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const user = req.body.user;
+    const title = req.body.title;
+    //idealy write logic to save to db
+    try {
+        yield client.lPush("submission", JSON.stringify({ user, title }));
+        res.json({
+            message: "submmision recieved"
+        });
+    }
+    catch (error) {
+        console.error("error in pushing to redis :", error);
+        res.json({
+            error: "error in submiting to redis"
+        });
+    }
+}));
 function startServer() {
     return __awaiter(this, void 0, void 0, function* () {
         try {

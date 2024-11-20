@@ -5,3 +5,6 @@
 /python-django/01/src/newProject/newProject
 /rust-server/01/target
 /rust-server/01/Cargo.lock
+/redis-nodejs/express-server/node_modules
+/redis-nodejs/worker/node_modules
+/open-api-spec/node_modules
