@@ -8,3 +8,7 @@
 /redis-nodejs/express-server/node_modules
 /redis-nodejs/worker/node_modules
 /open-api-spec/node_modules
+/pentesting-server/backend/node_modules
+/pentesting-server/attack/node_modules
+/statefull-stateless/statemanagement/node_modules
+/statefull-stateless/singleton-pubsub/node_modules
