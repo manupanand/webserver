@@ -30,7 +30,7 @@ class App {
     initalizeErrorHandling() {
         console.log("error initialized");
     }
-    // create instance -singleton server pattern
+    // create instance -singleton  pattern
     static serverInstance() {
         if (!App.instance) {
             App.instance = new App();

@@ -27,6 +27,7 @@ const [websocket,setSocket]=useState<WebSocket|null>(null);//need to store webso
                     }
                 }//anytime in eciving ice candidate set ice candidate
                 //add video logic
+                //reciever-end video.control=true//play button
                 peerconnection.ontrack=(event)=>{
                     console.log(event)
                     if(videoRef.current){

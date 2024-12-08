@@ -52,7 +52,8 @@ const [websocket,setSocket]=useState<WebSocket|null>(null);//need to store webso
         const stream= await navigator.mediaDevices.getUserMedia({
             video:true,
             audio:false
-        })
+        })//screen share -getDisplay Media
+        //reciever-end video.control=true//play button
         peerconnection.addTrack(stream.getVideoTracks()[0]);
         peerconnection.addTrack(stream.getAudioTracks()[0])
 

@@ -12,3 +12,8 @@
 /pentesting-server/attack/node_modules
 /statefull-stateless/statemanagement/node_modules
 /statefull-stateless/singleton-pubsub/node_modules
+/web-server-express-typescript/node_modules
+/node-sql/node_modules
+/node-sql/env
+/node-sql/dist
+/webrtc/harkirat/webrtc-demo/backend/node_modules
