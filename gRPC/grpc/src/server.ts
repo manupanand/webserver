@@ -1,30 +1,57 @@
-const protobuf = require('protobufjs');
-const fs = require('fs');
+import path from 'path';
+import * as grpc from '@grpc/grpc-js';
+import  { GrpcObject, ServiceClientConstructor } from "@grpc/grpc-js"
+import * as protoLoader from '@grpc/proto-loader';
+import { ProtoGrpcType } from './generated/a';
+import { AddressBookServiceHandlers } from './generated/AddressBookService';
+import { Status } from '@grpc/grpc-js/build/src/constants';
 
-console.log('Current directory:', __dirname);
-// Load the Protocol Buffers schema
-protobuf.load('./proto/message.proto')
-  .then((root:any) => {
-    // Obtain the Person message type
-    const Person = root.lookupType('Person');
+const packageDefinition=protoLoader.loadSync(path.join(__dirname,'../proto/a.proto'));
 
-    // Create a new Person instance
-    const person = { name: "Alice", age: 30 };
 
-    // Serialize Person to a buffer
-    const buffer = Person.encode(person).finish();
+const personProto=grpc.loadPackageDefinition(packageDefinition) as unknown as ProtoGrpcType
 
-    // Write buffer to a file
-    require('fs').writeFileSync('person.bin', buffer);
+//ideally it should be databse
+const PERSONS=[
+    {"name":"manu",
+        "age":36
+    },
+    {
+        "name":"niko",
+        "age":32
+    }
+    
+]
 
-    console.log('Person serialized and saved to person.bin');
+const handler: AddressBookServiceHandlers =  {
+    AddPerson: (call, callback) => {
+      let person = {
+        name: call.request.name,
+        age: call.request.age
+      }
+      PERSONS.push(person);
+      callback(null, person)
+    },
+    GetPersonByName: (call, callback) => {
+      let person = PERSONS.find(x => x.name === call.request.name);
+      if (person) {
+        callback(null, person)
+      } else {
+        callback({
+          code: Status.NOT_FOUND,
+          details: "not found"
+        }, null);
+      }
+    }
+  }
 
-    // Read the buffer from file
-    const data = require('fs').readFileSync('person.bin');
-
-    // Deserialize buffer back to a Person object
-    const deserializedPerson = Person.decode(data);
-
-    console.log('Person deserialized from person.bin:', deserializedPerson);
+const server =new grpc.Server()
+server.addService((personProto.AddressBookService ).service,handler)
+server.bindAsync('127.0.0.1:50051',grpc.ServerCredentials.createInsecure(),(err, port) => {
+    if (err) {
+      console.error('Failed to bind server:', err);
+      return;
+    }
+    console.log(`Server running at http://127.0.0.1:${port}`);
+    server.start();
   })
-  .catch(console.error);

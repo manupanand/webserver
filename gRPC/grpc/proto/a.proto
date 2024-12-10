@@ -6,10 +6,10 @@ message Person {
   int32 age = 2;
 }
 
-service PersonService {
+service AddressBookService {
   // Add a person to the address book.
-  rpc AddPerson(Person) returns (Person);
-  
+  rpc addPerson(Person) returns (Person);
+
   // Get a person from their name
   rpc GetPersonByName(GetPersonByNameRequest) returns (Person);
 }
