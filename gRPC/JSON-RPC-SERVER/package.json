@@ -1,0 +1,18 @@
+{
+  "name": "json-rpc-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "tsc -b && node ./dist/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/body-parser": "^1.19.5",
+    "@types/express": "^5.0.0",
+    "body-parser": "^1.20.3",
+    "express": "^4.21.2"
+  }
+}
