@@ -1,7 +1,7 @@
 /express-sqlite/node_modules
 /fingerprinting/node_modules
-/python-django/01/myenv
-/python-django/02/myenv
+/python/python-django/01/myenv
+/python/python-django/02/myenv
 /python-django/01/src/newProject/newProject
 /rust-server/01/target
 /rust-server/01/Cargo.lock
