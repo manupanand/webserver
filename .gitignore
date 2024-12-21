@@ -17,3 +17,15 @@
 /node-sql/env
 /node-sql/dist
 /webrtc/harkirat/webrtc-demo/backend/node_modules
+/gRPC/JSON-RPC-SERVER/node_modules
+/gRPC/grpc-protobuf/node_modules
+/gRPC/grpc/node_modules
+/python/flask-test/.venv
+/python/flask-test/venv
+/python/flask-test/.env
+/python/flask-test/*.pyc
+/python/flask-test/*.pyo
+/python/flask-test/app/__pycache__
+/python/fast-api/app/__pycache__
+/python/fast-api/.venv
+/python/fast-api/__pycache__
