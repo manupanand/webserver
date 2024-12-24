@@ -29,3 +29,16 @@
 /python/fast-api/app/__pycache__
 /python/fast-api/.venv
 /python/fast-api/__pycache__
+/python/django-projects/01/.venv
+/python/django-projects/01/newtest/newapp/migrations/__pycache__
+/python/django-projects/01/newtest/newtest/__pycache__
+/python/django-projects/01/newtest/newapp/__pycache__
+/python/django-projects/02/myenv
+/python/api-fastapi/.venv
+/python/api-fastapi/__pycache__
+/python/api-fastapi/app/__pycache__
+/python/api-fastapi/.env
+/python/api-fastapi-psql/.env
+/python/api-fastapi-psql/.venv
+/python/api-fastapi-psql/app/__pycache__
+/python/asyncpg/.venv
