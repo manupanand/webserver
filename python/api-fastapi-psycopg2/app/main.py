@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from pydantic import BaseModel
 from contextlib import asynccontextmanager
 from typing  import Optional
+from database import init_postgres
 import os
 #psycopg not working
 import asyncpg
@@ -14,6 +15,11 @@ load_dotenv()
 db_url=os.getenv("DB_URL")
 print(os.getenv("DB_URL"),db_url)
 conn_pool:Optional[asyncpg.Pool]=None
+
+
+
+# test connection
+
 
 # async def init_postgres()-> None:
 #     global conn_pool
