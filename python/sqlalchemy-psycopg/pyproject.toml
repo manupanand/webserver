@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "sqlalchemy-psycopg"
+version = "0.1.0"
+description = "A sample project"
+authors = ["manu p anand"] 
+
+[tool.poetry.dependencies]
+sqlalchemy = "*"
+psycopg = "*" 
+#fastapi[standard] = "*"
+
+[build-system]
+requires = ["setuptools", "wheel", "poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
