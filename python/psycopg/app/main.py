@@ -85,3 +85,38 @@ def get_post(id: int):
     finally:
         connection.close()
         cursor.close()
+
+#delete post
+@app.delete('/post/{id}')
+def delete_post(id : int):
+    try:
+        connection,cursor=connect_db()
+        query=("""DELETE FROM posts WHERE id=%s  RETURNING *;""")
+        cursor.execute(query,(str(id),))
+        deleted_post=cursor.fetchone()
+        connection.commit()
+        if deleted_post is None:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
+        return {"deleted":deleted_post}
+    except Exception as error:
+        print(f" Error while deleting post :{error}")
+    finally:
+        connection.close()
+        cursor.close()
+# update post
+@app.put('/post/{id}')
+def update_post(id: int,post:Post):
+    try:
+        connection,cursor=connect_db()
+        query=("""UPDATE posts SET title=%s,content=%s,published=%s WHERE id=%s RETURNING *; """)
+        cursor.execute(query,(post.title,post.content,post.published,str(id),))
+        updated_post=cursor.fetchone()
+        if updated_post is None:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
+        connection.commit()
+        return {"updated": updated_post}
+    except Exception as error:
+        print(f"Error while updating post :{error} ")
+    finally:
+        connection.close()
+        cursor.close()
