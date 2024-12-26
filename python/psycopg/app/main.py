@@ -68,3 +68,20 @@ def create_posts(post:Post):
     finally:
         connection.close()
         cursor.close()
+
+# retreve /get one post
+@app.get('/post/{id}')
+def get_post(id: int):
+    try:
+        connection,cursor=connect_db()
+        query=("""SELECT * FROM posts  WHERE id=%s;""")
+        cursor.execute(query,(str(id),))
+        post=cursor.fetchone()
+        if  post is None:
+              raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
+        return {"data": post}
+    except Exception as error:
+        print(f"Erro while fetching from database {error}")
+    finally:
+        connection.close()
+        cursor.close()
