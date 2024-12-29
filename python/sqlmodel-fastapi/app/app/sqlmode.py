@@ -17,7 +17,7 @@ user_2=User(name="neeraj",secret_name="pappan",age=26)
 
 
 #create engine
-engine=create_engine("sqlite3:///database.db")
+engine=create_engine(db_url)
 
 SQLModel.metadata.create_all(engine)
 
