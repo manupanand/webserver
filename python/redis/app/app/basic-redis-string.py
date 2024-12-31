@@ -28,7 +28,7 @@ async def basic_string_operations():
     print(f" username updated:{await client.get("username")}")
 
     #get the length of a string
-    length=await client.strlen("username")
+    length=await client.strlen("username")#STRLEN
     print(f"Length:{length}")
 
 

@@ -66,4 +66,11 @@
 /python/mongo-fastapi/.venv
 /python/mongo-fastapi/.env
 /python/mongo-fastapi/app/app/__pycache__
+/python/mongo-pymongo/.venv
+/python/mongo-pymongo/.env
+/python/mongo-pymongo/app/app/__pycache__
+/python/redis/.venv
+/python/redis/.env
+/python/redis/app/app/__pycache__
+
 
